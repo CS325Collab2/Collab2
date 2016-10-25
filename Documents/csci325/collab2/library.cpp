@@ -18,7 +18,7 @@ void library::push_front(movie insert){
 
 void library::insert_sorted(movie insert){
   movieList.push_back(insert);
-   movieList.sort();
+  //movieList.sort();
 }
 
 // library::print_helper(movie *current){
