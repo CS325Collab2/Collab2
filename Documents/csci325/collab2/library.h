@@ -12,6 +12,8 @@ class library{
  public:
   library();
   ~library();
+  void readFromFile(string file);
+  void writeToFile(string file);
   void insert_sorted(movie insert);
   void find_movie(string search);
   void director_search(string directorSearch);

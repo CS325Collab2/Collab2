@@ -1,0 +1,36 @@
+The Shawshank Redemption
+Frank Darabont
+142
+DVD
+12.99
+1994
+The Godfather
+Francis Ford Coppola
+175
+VHS
+40.00
+1972
+The Godfather: PartII
+Francis Ford Coppola
+202
+VHS
+35.00
+1974
+The Dark Knight
+Christopher Nolan
+152
+Blu-Ray
+12.99
+2008
+12 Angry Men
+Sidney Lumet
+96
+Digital
+3.99
+1957
+Schindler's List
+Steven Spielberg
+195
+Digital
+5.99
+1993
