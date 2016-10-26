@@ -10,7 +10,25 @@ int main() {
   listofMovies.push_back(newMovie);
   listofMovies.push_front(movie2);
   listofMovies.insert_sorted(movie3);
-  listofMovies.print();
+  listofMovies.insert_sorted(newMovie);
+  //listofMovies.print();
+
+  cout << "Find movie \"The\"" << endl;
+  listofMovies.find_movie("The");
+  cout << "Find movie \"a\"" << endl;
+  listofMovies.find_movie("a");
+  cout << "Director search \"Gore\"" << endl;
+  listofMovies.director_search("Gore");
+  cout << "Director search \"A\"" << endl;
+  listofMovies.director_search("A");
+  cout << "Director search \"a\"" << endl;
+  listofMovies.director_search("a");
+  cout << "Director search \"E\"" << endl;
+  listofMovies.director_search("E");
+  cout << "Director search \"e\"" << endl;
+  listofMovies.director_search("e");
+
+
   
   return 0; 
 }
