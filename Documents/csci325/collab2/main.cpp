@@ -86,7 +86,7 @@ int main() {
     else
       cout << "Invalid Input" << endl;
 
-    cout << "Welcome to your movie library!" << endl;
+    sfcout << "Welcome to your movie library!" << endl;
     cout << "1 Read a library from a file" << endl;
     cout << "2 Write current library to a file" << endl;
     cout << "3 Print current library to the screen" << endl;
