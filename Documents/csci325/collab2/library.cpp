@@ -15,7 +15,7 @@ void library::readFromFile(string file){
   string f;
   float p;
   int y;
-  
+  cout << "Reading file: " << file << endl;
   ifstream inFile;
   inFile.open(file.c_str());
 
@@ -23,14 +23,15 @@ void library::readFromFile(string file){
     getline(inFile, t);
     getline(inFile, d);
     inFile >> r;
-    inFile.get();
-    getline(inFile, f);
+    inFile >> f;
     inFile >> p;
-    inFile.get();
     inFile >> y;
+    inFile.get();
+
+    movie temp(t, d, r, f, p, y );
+    push_back(temp);
   }
-  movie temp(t, d, r, f, p, y );
-  push_back(temp);
+ 
   inFile.close();
 }
 
@@ -121,7 +122,11 @@ void library::print(){
   
   list<movie>::iterator it;
   for(it = movieList.begin(); it != movieList.end(); it++){
-    cout << it->title << "-->";
+    if(it == movieList.end()){
+      cout << it->title;
+    }
+    else
+      cout << it->title << "-->";
   }
   cout << endl; 
 }
