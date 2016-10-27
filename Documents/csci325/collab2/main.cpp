@@ -1,40 +1,106 @@
 #include "library.h"
 
+using namespace std;
+
 int main() {
 
   library listofMovies;
+  
+  cout << "Welcome to your movie library!" << endl;
+  cout << "1 Read a library from a file" << endl;
+  cout << "2 Write current library to a file" << endl;
+  cout << "3 Print current library to the screen" << endl;
+  cout << "4 Search for a movie by title" << endl;
+  cout << "5 Search for a movie by director's name" << endl;
+  cout << "6 Add a new movie to the library" << endl;
+  cout << "7 Delete a movie from the library" << endl;
+  cout << "8 Exit the program" << endl;
 
-  listofMovies.readFromFile("movies.txt");
-  // movie newMovie("The Ring", "Gore Verbinski", 145, "DVD", 3.98, 2002);
-  // movie movie2("The Birds", "Alfred Hitchcock", 120, "Digital", 1, 1963);
-  // movie movie3("The Giver", "Phillip Noyce", 97, "DVD", 4.50, 2014);
+  string input;
+  string file;
   
-  // listofMovies.push_back(newMovie);
-  // listofMovies.push_front(movie2);
-  // listofMovies.push_front(movie3);
-  // // listofMovies.insert_sorted(movie3);
-  // //listofMovies.insert_sorted(movie2);
-  // //  listofMovies.insert_sorted(movie3);
-  // // listofMovies.insert_sorted(newMovie);
-  listofMovies.writeToFile("test.txt");
-  listofMovies.print();
-  // listofMovies.remove("The Birds");
+  string title;
+  string director;
+  int runtime;
+  string format;
+  float price;
+  int year;
 
-  // cout << "Find movie \"The\"" << endl;
-  // listofMovies.find_movie("The");
-  // cout << "Find movie \"a\"" << endl;
-  // listofMovies.find_movie("a");
-  
-  // cout << "Director search \"Gore\"" << endl;
-  // listofMovies.director_search("Gore");
-  // cout << "Director search \"A\"" << endl;
-  // listofMovies.director_search("A");
-  // cout << "Director search \"a\"" << endl;
-  // listofMovies.director_search("a");
-  // cout << "Director search \"E\"" << endl;
-  // listofMovies.director_search("E");
-  // cout << "Director search \"e\"" << endl;
-  // listofMovies.director_search("e");
-  
+  cout << "Enter your choice now: ";
+  cin >> input;
+
+  while(input != "8"){
+    if(input == "1"){
+      cout << "Enter name of the file to read: ";
+      cin >> file;
+      cout << "Reading: " << file << endl;
+      listofMovies.readFromFile(file);
+      cout << "Finished reading: " << file << endl;
+    }
+    else if(input == "2"){
+      cout << "Enter name of the file to write to: ";
+      cin >> file;
+      cout << "Writing to: " << file << endl;
+      listofMovies.writeToFile(file);
+      cout << "Finished writing to: " << file << endl;
+    }
+    else if(input == "3"){
+      cout << "Printing current library." << endl;
+      listofMovies.print();
+      cout << "Finished printing \n" << endl;
+    }
+    else if(input == "4"){
+      cout << "Enter title to search for: ";
+      cin >> title;
+      listofMovies.find_movie(title);
+    }
+    else if(input == "5"){
+      cout << "Enter director's name to search (search is case-sensitive): ";
+      cin >> director;
+      listofMovies.director_search(director);
+    }
+    else if(input == "6"){
+      cout << "Enter title of movie to add: ";
+      cin >> title;
+      cout << "Enter director's name: ";
+      cin >> director;
+      cout << "Enter runtime of movie: ";
+      cin >> runtime;
+      cout << "Enter format of movie: ";
+      cin >> format;
+      cout << "Enter price of movie: ";
+      cin >> price;
+      cout << "Enter release year of movie: ";
+      cin >> year;
+
+      movie toAdd(title, director, runtime, format, price, year);
+      listofMovies.insert_sorted(toAdd);
+    }
+    else if(input == "7"){
+      cout << "Enter title of movie to remove: ";
+      cin >> title;
+
+      cout << "Removing " << title << endl;
+      listofMovies.remove(title);
+    }
+    else
+      cout << "Invalid Input" << endl;
+
+    cout << "Welcome to your movie library!" << endl;
+    cout << "1 Read a library from a file" << endl;
+    cout << "2 Write current library to a file" << endl;
+    cout << "3 Print current library to the screen" << endl;
+    cout << "4 Search for a movie by title" << endl;
+    cout << "5 Search for a movie by director's name" << endl;
+    cout << "6 Add a new movie to the library" << endl;
+    cout << "7 Delete a movie from the library" << endl;
+    cout << "8 Exit the program" << endl;
+
+
+    cout << "Please enter your choice now: ";
+    cin >> input;
+    cout << "\n" << endl;
+  }
+  cout << "Exiting program." << endl;
   return 0; 
 }
