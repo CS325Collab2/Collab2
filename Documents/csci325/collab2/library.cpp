@@ -9,11 +9,38 @@ library::~library(){
 }
 
 void library::readFromFile(string file){
+  string t;
+  string d;
+  int r;
+  string f;
+  float p;
+  int y;
   
+  ifstream inFile;
+  inFile.open(file.c_str());
+
+  while(inFile){
+    getline(inFile, t);
+    getline(inFile, d);
+    inFile >> r;
+    inFile.get();
+    getline(inFile, f);
+    inFile >> p;
+    inFile.get();
+    inFile >> y;
+  }
+  movie temp(t, d, r, f, p, y );
+  insert_sorted(temp);
 }
 
 void library::writeToFile(string file){
-  
+  ofstream outFile;
+  outFile.open(file.c_str());
+
+  list<movie>::iterator it;
+  for(it = movieList.begin(); it != movieList.end(); it++){
+    outFile << it -> title << endl;
+  }
 }
 
 void library::insert_sorted(movie insert){
