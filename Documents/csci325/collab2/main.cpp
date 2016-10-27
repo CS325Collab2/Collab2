@@ -4,7 +4,7 @@ int main() {
 
   library listofMovies;
 
-  //listofMovies.readFromFile("movies.txt");
+  listofMovies.readFromFile("movies.txt");
   movie newMovie("The Ring", "Gore Verbinski", 145, "DVD", 3.98, 2002);
   movie movie2("The Birds", "Alfred Hitchcock", 120, "Digital", 1, 1963);
   movie movie3("The Giver", "Phillip Noyce", 97, "DVD", 4.50, 2014);
@@ -36,8 +36,6 @@ int main() {
   // listofMovies.director_search("E");
   // cout << "Director search \"e\"" << endl;
   // listofMovies.director_search("e");
-
-
   
   return 0; 
 }

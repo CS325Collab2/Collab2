@@ -1,7 +1,10 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 
-
+#include<string>
+#include<list>
+#include<iostream>
+#include<fstream>
 
 using namespace std;
 

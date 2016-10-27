@@ -30,7 +30,8 @@ void library::readFromFile(string file){
     inFile >> y;
   }
   movie temp(t, d, r, f, p, y );
-  insert_sorted(temp);
+  push_back(temp);
+  inFile.close();
 }
 
 void library::writeToFile(string file){
@@ -40,6 +41,11 @@ void library::writeToFile(string file){
   list<movie>::iterator it;
   for(it = movieList.begin(); it != movieList.end(); it++){
     outFile << it -> title << endl;
+    outFile << it -> director << endl;
+    outFile << it -> runtime << endl;
+    outFile << it -> format << endl;
+    outFile << it -> price << endl;
+    outFile << it -> year << endl;
   }
 }
 
