@@ -28,6 +28,7 @@ int main() {
 
   cout << "Enter your choice now: ";
   cin >> input;
+  cin.get();
 
   while(input != "8"){
     if(input == "1"){
@@ -60,19 +61,20 @@ int main() {
       listofMovies.director_search(director);
     }
     else if(input == "6"){
-      cout << "Enter title of movie to add: ";
-      cin >> title;
-      cout << "Enter director's name: ";
-      cin >> director;
-      cout << "Enter runtime of movie: ";
+      cout << "Enter title of movie to add:";
+      getline(cin, title);
+      cout << "Enter director's name:";
+      getline(cin, director);
+      cout << "Enter runtime of movie:";
       cin >> runtime;
-      cout << "Enter format of movie: ";
+      cout << "Enter format of movie:";
       cin >> format;
-      cout << "Enter price of movie: ";
+      cout << "Enter price of movie:";
       cin >> price;
-      cout << "Enter release year of movie: ";
+      cout << "Enter release year of movie:";
       cin >> year;
-
+      cin.get();
+      
       movie toAdd(title, director, runtime, format, price, year);
       listofMovies.insert_sorted(toAdd);
     }
@@ -86,7 +88,8 @@ int main() {
     else
       cout << "Invalid Input" << endl;
 
-    sfcout << "Welcome to your movie library!" << endl;
+    cout << "\n\n" << endl;
+    cout << "Welcome to your movie library!" << endl;
     cout << "1 Read a library from a file" << endl;
     cout << "2 Write current library to a file" << endl;
     cout << "3 Print current library to the screen" << endl;
@@ -99,6 +102,7 @@ int main() {
 
     cout << "Please enter your choice now: ";
     cin >> input;
+    cin.get();
     cout << "\n" << endl;
   }
   cout << "Exiting program." << endl;

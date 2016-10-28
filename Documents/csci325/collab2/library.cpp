@@ -1,7 +1,7 @@
 #include "library.h"
 
 library::library(){
-  list<movie> movieList;
+  
 }
 
 library::~library(){
@@ -15,12 +15,13 @@ void library::readFromFile(string file){
   string f;
   float p;
   int y;
+  
   cout << "Reading file: " << file << endl;
   ifstream inFile;
   inFile.open(file.c_str());
 
+  getline(inFile, t);
   while(inFile){
-    getline(inFile, t);
     getline(inFile, d);
     inFile >> r;
     inFile >> f;
@@ -29,9 +30,10 @@ void library::readFromFile(string file){
     inFile.get();
 
     movie temp(t, d, r, f, p, y );
-    push_back(temp);
+    insert_sorted(temp);
+
+    getline(inFile,t);
   }
- 
   inFile.close();
 }
 
@@ -50,14 +52,13 @@ void library::writeToFile(string file){
   }
 }
 
-void library::insert_sorted(movie insert){
-  list<movie>::iterator it;
-  for(it = movieList.begin(); it != movieList.end(); it++){
-    if(insert.title < it -> title){
-      movieList.insert(it, insert);
-    }
-  }
+void library::insert_sorted(movie toInsert){
+  list<movie>::iterator it = movieList.begin();
+  while(it != movieList.end() && toInsert.title > it -> title)
+    it++;
+  movieList.insert(it, toInsert);
 }
+
 
 void library::find_movie(string search){
   list<movie>::iterator it;
@@ -72,7 +73,6 @@ void library::find_movie(string search){
       cout << "Release year: " << it -> year << "\n\n" << endl;;
     }
   }
-  cout << "No results found.\n\n" << endl;
 }
 
 void library::director_search(string directorSearch){
@@ -100,15 +100,6 @@ void library::remove(string toRemove){
   }
 }
 
-
-// library::print_helper(movie *current){
-//   if(current != NULL){
-//     cout << "-->" << current -> title;
-//     print_helper(current -> next);
-//   }
-// }
-
-
 void library::push_back(movie insert){
   movieList.push_back(insert);
 }
@@ -118,16 +109,17 @@ void library::push_front(movie insert){
 }
 
 void library::print(){
-  cout << "Movies list: " << endl;
+  cout << "Movie list: " << endl;
   
   list<movie>::iterator it;
   for(it = movieList.begin(); it != movieList.end(); it++){
-    if(it == movieList.end()){
-      cout << it->title;
-    }
-    else
-      cout << it->title << "-->";
+    cout << it -> title << endl;
+    cout << it -> director << endl;
+    cout << it -> runtime << endl;
+    cout << it -> format << endl;
+    cout << it -> price << endl;
+    cout << it -> year << endl;
+    cout << "\n" << endl;
   }
-  cout << endl; 
 }
 

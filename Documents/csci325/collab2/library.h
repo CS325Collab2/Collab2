@@ -13,14 +13,13 @@ class library{
   ~library();
   void readFromFile(string file);
   void writeToFile(string file);
-  void insert_sorted(movie insert);
+  void insert_sorted(movie toInsert);
   void find_movie(string search);
   void director_search(string directorSearch);
   void remove(string toRemove);
   void push_back(movie insert);
   void push_front(movie insert);
   void print();
-  
-};
+  };
 
 #endif //library.h
